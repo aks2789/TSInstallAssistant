@@ -1,5 +1,18 @@
 package com.ts.common.pages;
 
-public class WebPage {
+
+/*
+ * Base class for all pages
+ */
+public abstract class WebPage {
+
+	protected Browser browser;
+
+	protected abstract boolean isValid();
+	
+	public void setBrowser(Browser browser) {
+		this.browser=browser;
+		
+	}
 
 }
