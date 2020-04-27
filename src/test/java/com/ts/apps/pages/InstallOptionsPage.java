@@ -29,7 +29,7 @@ public class InstallOptionsPage extends WebPage {
 	@FindBy(id="haveSerialNumber")
 	private WebElement serialNumberRadio;
 	
-	@FindBy(xpath="//*[@id=\"serialNumber\"]")
+	@FindBy(xpath="//*[text()='Serial Number']/following::input[1]")
 	private WebElement serialNumber;
 	
 	@FindBy(id="next-link")
@@ -53,19 +53,18 @@ public class InstallOptionsPage extends WebPage {
 			newInstallation.click();
 			ednUsername.sendKeys("mabbusaivardhan.reddy@accoliteindia.com");
 			ednPassword.sendKeys("V@rdhan!43");
+			browser.scrollToBottomOfAPage();
 			serialNumberRadio.click();
 			//Actions action = new Actions(browser.getDriver());
 			//action.moveToElement(serialNumber);
 			//action.perform();
-			browser.scrollTillElementNotFound(serialNumber);
 			serialNumber.sendKeys("K5AL-ATAN28-ETP4AK-C2K6");
 			//action.moveToElement(nextButton);
 			//action.perform();
-			browser.scrollTillElementNotFound(nextButton);
-			nextButton.click();
+			//nextButton.click();
 			//action.moveToElement(licenseRetrivedButton);
 			//action.perform();
-			licenseRetrivedButton.click();
+			//licenseRetrivedButton.click();
 		}
 		catch (Exception e) {
 			// TODO: handle exception

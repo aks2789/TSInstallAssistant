@@ -21,10 +21,11 @@ public class LoginPage extends WebPage {
 		return userName.isDisplayed() && password.isDisplayed() && loginBtn.isDisplayed();
 	}
 
-	public void login(String username, String pwd) {
+	public WebPage login(String username, String pwd) {
 		userName.sendKeys(username);
 		password.sendKeys(pwd);
 		loginBtn.click();
+		return browser.makeWebPage("com.ts.apps.pages.InstallOptionsPage");
 	}
 
 }

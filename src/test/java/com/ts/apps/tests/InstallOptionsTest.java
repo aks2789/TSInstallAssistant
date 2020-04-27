@@ -4,15 +4,20 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.ts.apps.pages.InstallOptionsPage;
+import com.ts.apps.pages.LoginPage;
 import com.ts.common.tests.BaseTest;
 
 public class InstallOptionsTest  extends BaseTest {
-	InstallOptionsPage installOptionsPage = null;;
+	
+	LoginPage loginPage = null;
+	InstallOptionsPage installOptionsPage = null;
 
 	@BeforeClass
 	public void launchApp() throws Throwable {
+		loginPage = (LoginPage) browser.navigateToUrl("http://localhost/configurator/login", "com.ts.apps.pages.LoginPage");
 		//installOptionsPage = (InstallOptionsPage) browser.navigateToUrl("http://localhost/configurator/setup/options", "com.ts.apps.pages.InstallOptionsPage");
-		installOptionsPage = (InstallOptionsPage) browser.makeWebPage("com.ts.apps.pages.InstallOptionsPage");
+		//installOptionsPage = (InstallOptionsPage) browser.makeWebPage("com.ts.apps.pages.InstallOptionsPage");
+		installOptionsPage=(InstallOptionsPage) loginPage.login("Admin", "Admin");
 	}
 	
 	@Test

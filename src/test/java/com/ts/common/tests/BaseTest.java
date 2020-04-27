@@ -36,7 +36,7 @@ public abstract class BaseTest {
 		Reporter.log("Test Started : " + method.getName(), true);
 	}
 
-	@AfterClass()
+	//@AfterClass()
 	public void afterClass() throws Exception, Throwable {
 		try {
 			browser.quit();

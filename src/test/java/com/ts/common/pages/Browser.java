@@ -53,6 +53,13 @@ public class Browser {
 	
 	public void scrollTillElementNotFound(WebElement e) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
-
+	}
+	
+	public void scrollToBottomOfAPage() {
+		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
+	
+	public void sendKeysUsingJavaScript(WebElement e, String text) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].value='"+text+"'", e);
 	}
 }
