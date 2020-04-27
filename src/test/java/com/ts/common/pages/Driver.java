@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class Driver {
 	
 	private static Driver d=null;
+	private WebDriver driver;
 	private Driver(){
 		
 	}
@@ -20,9 +21,11 @@ public class Driver {
 	 * Initialize web driver instance
 	 */
 	public WebDriver buildWebDriver(){
-		ChromeOptions chromeOptions = new ChromeOptions();
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-		WebDriver driver = new ChromeDriver(chromeOptions);
+		if (driver == null) {
+			ChromeOptions chromeOptions = new ChromeOptions();
+			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+			driver = new ChromeDriver(chromeOptions);
+		}
 		return driver;
 	}
 

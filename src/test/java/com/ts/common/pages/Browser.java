@@ -2,7 +2,9 @@ package com.ts.common.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class Browser {
@@ -47,5 +49,10 @@ public class Browser {
 
 	public String getPageTitle() {
 		return driver.getTitle();
+	}
+	
+	public void scrollTillElementNotFound(WebElement e) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", e);
+
 	}
 }
