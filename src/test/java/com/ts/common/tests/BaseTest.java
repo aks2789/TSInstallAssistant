@@ -1,8 +1,10 @@
 package com.ts.common.tests;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Properties;
+
 import static org.testng.Assert.fail;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
@@ -23,8 +25,11 @@ public abstract class BaseTest {
 	@BeforeSuite
 	public void initializeSuite() throws IOException {
 		testProperties = new Properties();
-		testProperties.load(this.getClass().getClassLoader().getResourceAsStream("config/test.properties"));
+		testProperties.load(new FileReader(System.getProperty("user.dir")+"\\test.properties"));
+		//testProperties.load(this.getClass().getClassLoader().getResourceAsStream("config/test.properties"));
 	}
+	
+	
 
 	@BeforeClass
 	public void beforeClass() throws Exception, Throwable {
@@ -44,4 +49,9 @@ public abstract class BaseTest {
 			fail("Exception Occured - " + e.getMessage(), e);
 		}
 	}
+	
+	public static String getProperty(String Key) {
+		return testProperties.getProperty(Key, "");
+	}
+	
 }

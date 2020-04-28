@@ -1,9 +1,9 @@
 package com.ts.apps.pages;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import com.ts.common.pages.Constants;
 import com.ts.common.pages.WebPage;
 
 public class InstallOptionsPage extends WebPage {
@@ -47,30 +47,24 @@ public class InstallOptionsPage extends WebPage {
 		return false;
 	}
 	
-	public void fillInstallOptions() {
-		try {
+	public WebPage fillInstallOptions(String installationType, String username, String password, String licenseKey) {
+		if(installationType.equalsIgnoreCase(Constants.PROFESSIONAL_EDITION)) {
+			professionalType.click();
+			newInstallation.click();
+			nextButton.click();
+		}
+		else {
 			enterpriseType.click();
 			newInstallation.click();
-			ednUsername.sendKeys("mabbusaivardhan.reddy@accoliteindia.com");
-			ednPassword.sendKeys("V@rdhan!43");
+			ednUsername.sendKeys(username);
+			ednPassword.sendKeys(password);
 			browser.scrollToBottomOfAPage();
 			serialNumberRadio.click();
-			//Actions action = new Actions(browser.getDriver());
-			//action.moveToElement(serialNumber);
-			//action.perform();
-			serialNumber.sendKeys("K5AL-ATAN28-ETP4AK-C2K6");
-			//action.moveToElement(nextButton);
-			//action.perform();
-			//nextButton.click();
-			//action.moveToElement(licenseRetrivedButton);
-			//action.perform();
-			//licenseRetrivedButton.click();
+			serialNumber.sendKeys(licenseKey);
+			nextButton.click();
+			licenseRetrivedButton.click();
 		}
-		catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.getMessage());
-		}
-		
+		return browser.makeWebPage("com.ts.apps.pages.DBSetupPage");
 	}
 	
 }
