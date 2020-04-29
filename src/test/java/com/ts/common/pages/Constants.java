@@ -36,4 +36,13 @@ public class Constants {
 	
 	public static final String WINDOWS_DOMAIN = "WindowsDomain";
 	
+	public static final String SERVICE_NAME_CHECKBOX = "UseOracleServiceName";
+	
+	public static final String ORACLE_SERVICE_NAME = "OracleServiceName";
+	
+	public static final String SSL_ENABLED = "UseSSL";
+	
+	public static final String WINDOWS_AUTHENTICATION_ENABELD = "UseWindowsAuthnetication";
+	
+	public static final String DB_DOMAIN = "DBDomain"; 
 }

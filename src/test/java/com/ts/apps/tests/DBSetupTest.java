@@ -27,7 +27,10 @@ public class DBSetupTest extends BaseTest{
 	@Test
 	public void fillDBOptions() throws Throwable{
 		assert(dbSetupPage.isValid());
-		dbSetupPage.fillDBOptions(getProperty(Constants.DB_TYPE), getProperty(Constants.DB_HOST), getProperty(Constants.DB_PORT), 
+		dbSetupPage.fillDBOptions(getProperty(Constants.DB_TYPE), 
+				getProperty(Constants.DB_HOST), getProperty(Constants.DB_PORT), 
+				getProperty(Constants.SSL_ENABLED), getProperty(Constants.WINDOWS_AUTHENTICATION_ENABELD), 
+				getProperty(Constants.SERVICE_NAME_CHECKBOX), getProperty(Constants.ORACLE_SERVICE_NAME), getProperty(Constants.DB_DOMAIN),
 				getProperty(Constants.DB_USERNAME), getProperty(Constants.DB_PASSWORD), getProperty(Constants.DB_NAME));
 	}
 

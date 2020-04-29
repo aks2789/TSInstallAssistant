@@ -23,8 +23,10 @@ public class ConfigurationExecutionTest extends BaseTest {
 				getProperty(Constants.EDN_USERNAME), getProperty(Constants.EDN_PASSWORD), getProperty(Constants.LICENSE_KEY));
 		//DB Setup Action
 		WindowsServiceAccountPage windowsServiceAccountPage = (WindowsServiceAccountPage) dbSetupPage.fillDBOptions(getProperty(Constants.DB_TYPE), 
-				getProperty(Constants.DB_HOST), getProperty(Constants.DB_PORT), getProperty(Constants.DB_USERNAME), 
-				getProperty(Constants.DB_PASSWORD), getProperty(Constants.DB_NAME));
+				getProperty(Constants.DB_HOST), getProperty(Constants.DB_PORT), 
+				getProperty(Constants.SSL_ENABLED), getProperty(Constants.WINDOWS_AUTHENTICATION_ENABELD), 
+				getProperty(Constants.SERVICE_NAME_CHECKBOX), getProperty(Constants.ORACLE_SERVICE_NAME), getProperty(Constants.DB_DOMAIN),
+				getProperty(Constants.DB_USERNAME), getProperty(Constants.DB_PASSWORD), getProperty(Constants.DB_NAME));
 		//Windows Service Account Action
 		configurationExecutionPage = (ConfigurationExecutionPage) windowsServiceAccountPage.verifyWindowsCredentials(getProperty(Constants.INSTALLATION_TYPE), 
 				getProperty(Constants.WINDOWS_DOMAIN), getProperty(Constants.WINDOWS_USERNAME), getProperty(Constants.WINDOWS_PASSWORD));
